@@ -1,0 +1,25 @@
+with open('65.txt','r') as F:
+    f=F.readlines()
+    q=0
+    Q=0
+    w=0
+    str=''
+    letter=''
+    for i in range(len(f)-1):
+        x=F.readline()
+        if x[i]+1==x[i+1]:
+            q+=1
+            if q<w:
+                w=q
+        elif x[i]+1!=x[i+1]:
+            q=0
+        if w>=Q:
+            Q=w
+            str=f[i]
+            c=0
+            for t in range(len(x)):
+                if x.count(x[t])>c:
+                    c=x.count(x[t])
+                    letter=x[t]
+    print(letter,c)
+            
